@@ -1,0 +1,5 @@
+frida>=16
+frida-tools
+psutil
+pillow
+markdown

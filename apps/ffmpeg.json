@@ -1,0 +1,35 @@
+{
+  "id": "ffmpeg",
+  "name": "FFmpeg",
+  "find": { "exe": "ffmpeg", "env": "CCMOD_FFMPEG", "dirs": ["C:/ffmpeg*/bin", "C:/Program Files/ffmpeg*/bin"] },
+  "commands": {
+    "grayscale": {
+      "description": "Remove the colour from a video.",
+      "args": ["-y", "-i", "{input}", "-vf", "hue=s=0", "-c:a", "copy", "{output}"],
+      "inputs": { "input": { "type": "file" } },
+      "outputs": { "output": { "ext": ".mp4", "import": true } },
+      "timeout": 1800
+    },
+    "speed": {
+      "description": "Change playback speed (2 = twice as fast). Video only.",
+      "args": ["-y", "-i", "{input}", "-filter:v", "setpts=PTS/{factor}", "-an", "{output}"],
+      "inputs": { "input": { "type": "file" }, "factor": { "type": "number", "default": 2 } },
+      "outputs": { "output": { "ext": ".mp4", "import": true } },
+      "timeout": 1800
+    },
+    "extract_audio": {
+      "description": "Pull the audio track out as a WAV file.",
+      "args": ["-y", "-i", "{input}", "-vn", "{output}"],
+      "inputs": { "input": { "type": "file" } },
+      "outputs": { "output": { "ext": ".wav", "import": true } },
+      "timeout": 900
+    },
+    "thumbnail": {
+      "description": "Save one frame (at the given second) as a PNG.",
+      "args": ["-y", "-ss", "{seconds}", "-i", "{input}", "-frames:v", "1", "{output}"],
+      "inputs": { "input": { "type": "file" }, "seconds": { "type": "number", "default": 0 } },
+      "outputs": { "output": { "ext": ".png", "import": true } },
+      "timeout": 120
+    }
+  }
+}

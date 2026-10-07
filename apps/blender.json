@@ -1,0 +1,21 @@
+{
+  "id": "blender",
+  "name": "Blender",
+  "find": { "exe": "blender", "env": "CCMOD_BLENDER", "dirs": ["C:/Program Files/Blender Foundation/Blender*", "C:/Program Files (x86)/Blender Foundation/Blender*"] },
+  "commands": {
+    "render_blend": {
+      "description": "Render the animation of an existing .blend file to an MP4.",
+      "args": ["--background", "{blend}", "--render-output", "{output}", "--render-format", "FFMPEG", "--use-extension", "0", "--render-anim"],
+      "inputs": { "blend": { "type": "file" } },
+      "outputs": { "output": { "ext": ".mp4", "import": true } },
+      "timeout": 7200
+    },
+    "run_script": {
+      "description": "Run your own Python (bpy) script headless. The script receives the output path as the last argument after '--'.",
+      "args": ["--background", "--python", "{script}", "--", "{output}"],
+      "inputs": { "script": { "type": "file" } },
+      "outputs": { "output": { "ext": ".mp4", "import": true } },
+      "timeout": 7200
+    }
+  }
+}

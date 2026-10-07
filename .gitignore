@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+editor/build/
+editor/bin/
+site/_out/
+plugin-state*/
+.pytest_cache/

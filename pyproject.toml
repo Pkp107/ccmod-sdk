@@ -1,0 +1,13 @@
+[project]
+name = "ccmod"
+description = "Safe CapCut mod manager"
+requires-python = ">=3.10"
+
+[project.scripts]
+ccmod = "ccmod:main"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+# live_capcut tests read the real CapCut install; opt in with `pytest -m live_capcut`
+addopts = "-m 'not live_capcut'"
+markers = ["live_capcut: reads the real CapCut install"]

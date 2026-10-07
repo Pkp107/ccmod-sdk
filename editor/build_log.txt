@@ -1,0 +1,15 @@
+'vswhere.exe' is not recognized as an internal or external command,
+operable program or batch file.
+imgui.cpp
+imgui_draw.cpp
+imgui_tables.cpp
+imgui_widgets.cpp
+imgui_impl_win32.cpp
+imgui_impl_dx11.cpp
+Generating Code...
+main.cpp
+render.cpp
+model.cpp
+codegen.cpp
+Generating Code...
+Built editor\bin\ccmod-transition-editor.exe
